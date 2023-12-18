@@ -21,20 +21,20 @@ import ghidra.program.model.address.*;
 public class c3script extends GhidraScript {
 
     public void run() throws Exception {
-	    Program program = currentProgram;
-	    FunctionManager functionManager = program.getFunctionManager();
+		Program program = currentProgram;
+		FunctionManager functionManager = program.getFunctionManager();
 
-        //================== Get the function ===================
+    	//================== Get the function ===================
         boolean functionFound = false;
-	    boolean incorrectFunctionEntered = false;
-	    boolean functionHasVariables = true;
-	    Function desiredFunction = getFirstFunction();
-	    String desiredFunctionString = "";
+		boolean incorrectFunctionEntered = false;
+		boolean functionHasVariables = true;
+		Function desiredFunction = getFirstFunction();
+		String desiredFunctionString = "";
 
         while (!functionFound) {
-            //Get the function name
-	        if (!functionHasVariables) {
-	            desiredFunctionString = askString("Function Name", "The function \"" + desiredFunctionString + "\" exists but doesn't have any variables. What function are you checking the variables from?");
+        	//Get the function name
+			if (!functionHasVariables) {
+	        	desiredFunctionString = askString("Function Name", "The function \"" + desiredFunctionString + "\" exists but doesn't have any variables. What function are you checking the variables from?");
 	        }
 	        else if (incorrectFunctionEntered) {
 	            desiredFunctionString = askString("Function Name", "The function \"" + desiredFunctionString + "\" does not exist. What function are you checking the variables from?");
@@ -55,9 +55,9 @@ public class c3script extends GhidraScript {
                 //if this is the desired function
                 if (desiredFunctionString.equals(currentFunction.getName())) {
 		            if (currentFunction.getLocalVariables().length == 0) {
-			        //It exists, but doesn't have any variables
-			        functionHasVariables = false;
-			        break;
+			        	//It exists, but doesn't have any variables
+			        	functionHasVariables = false;
+			        	break;
 		            }
 		            else {
                         desiredFunction = currentFunction;
