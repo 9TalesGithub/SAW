@@ -21,7 +21,7 @@ import ghidra.program.model.address.*;
 public class c3script extends GhidraScript {
 
     public void run() throws Exception {
-		Program program = currentProgram;
+	    Program program = currentProgram;
 		FunctionManager functionManager = program.getFunctionManager();
 
     	//================== Get the function ===================
