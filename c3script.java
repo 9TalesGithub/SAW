@@ -66,10 +66,8 @@ public class c3script extends GhidraScript {
                 }
             }
 
-            //Add an error message if the function doesn't exist (this also gets entered if it doesn't have variables, but that has no effect)
-            if (!functionFound) {
-                incorrectFunctionEntered = true;
-            }
+            //Add an error message to the prompt if the while loop runs again
+            incorrectFunctionEntered = true;
         }
 	
 
@@ -100,10 +98,8 @@ public class c3script extends GhidraScript {
                 }
 	    }
 
-            //Add an error message if the variable does not exist
-            if (!variableFound) {
-                incorrectVariableEntered = true;
-            }
+            //Add an error message to the prompt if the while loop runs again
+            incorrectVariableEntered = true;
         }
         
         //================== Find all write locations to that variable ==================
